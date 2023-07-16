@@ -1,4 +1,5 @@
 import "./styles/App.css";
+import UserProfile from "./UserProfile.jsx";
 function App() {
   //The array of users to render in the assignment
   const users = [
@@ -43,13 +44,21 @@ function App() {
       imgUrl: "https://xsgames.co/randomusers/avatar.php?g=female",
     },
   ];
+
+  const listItems = users.map((user) =>
+
+          // eslint-disable-next-line react/jsx-key
+        <UserProfile name={user.name} email={user.email} imgURL={user.imgUrl}/>
+
+  );
+
   return (
     <div className="App">
       <header >
         <h1 className="">User Profiles:</h1>
       </header>
       <div className="user-profile-wrapper">
-        {/* Render the array of users using the UserProfile in this div */}
+        <ul>{listItems}</ul>
 
       </div>
     </div>
